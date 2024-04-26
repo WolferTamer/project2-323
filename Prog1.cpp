@@ -78,24 +78,28 @@ bool driver() {
         char i = input[token];
         if(isTerminal(t)) {
             if(t == i) {
-                cout << "Stack: ";
-                printStack(pile);
-                cout << '\n';
                 pile.pop();
                 token++;
+                cout << "Input: " << input.substr(token) << '\n'; 
+                cout << "Stack: [";
+                printStack(pile);
+                cout << "]\n";
             } else {
                 return false;
             }
         } else {
             if(table.count(make_pair(t,i)) == 1) {
                 string val = table[make_pair(t,i)];
-                cout << "Stack: ";
-                printStack(pile);
-                cout << '\n';
                 pile.pop();
                 for(int j = val.size()-1; j >= 0; j--) {
                     pile.push(val.at(j));
                 }
+
+                cout << "Input: " << input.substr(token) << '\n'; 
+                cout << "Stack: [";
+                printStack(pile);
+                cout << "]\n";
+                
             } else {
                 return false;
             }
@@ -112,6 +116,9 @@ int main(int argc, char* argv[]) {
     }
 
     cout << "Input: " << input << '\n';
+    cout << "Stack: ";
+    printStack(pile);
+    cout << '\n';
 
     fillTable();
     bool output = driver();
