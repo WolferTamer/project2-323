@@ -43,22 +43,6 @@ void fillTable() {
     table[make_pair('F','(')] = "(E)";
 }
 
-void E() {
-
-}
-
-void T() {
-
-}
-
-void Q() {
-
-}
-
-void F(){
-
-}
-
 void printStack(stack<char> s)
 {
     if (s.empty())
