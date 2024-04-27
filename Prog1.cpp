@@ -114,6 +114,10 @@ int main(int argc, char* argv[]) {
     for(int i = 1; i < argc; i++) {
         input += argv[i];
     }
+    if(input.size() == 0) {
+        cout << "Please provide a string argument in the file call.\n";
+        return 0; 
+    }
 
     cout << "Input: " << input << '\n';
     cout << "Stack: ";
